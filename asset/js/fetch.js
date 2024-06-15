@@ -1,13 +1,11 @@
 const API_KEY = "950568ca8ba77b218222e73059c2fc24";
-const StateCode = "FL";
-const CountryCode = "US";
 
 // get the lat and lon of a city
 const getLatLon = (cityName) => {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${StateCode},${CountryCode}&appid=${API_KEY}`)
-        .then(response => response.json())
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_KEY}`)    
+    .then(response => response.json())
         .then(data => {
-            getWeatherData(data[0].lat, data[0].lon);
+            getWeatherData(data.city.coord.lat, data.city.coord.lon);
         })
         .catch(error => console.error(error));
 } 
@@ -35,7 +33,8 @@ const generateWeather = (data) => {
 
     // loop through the 5 day forecast
     for (let i = 1; i < 6; i++) {
-        $(`#${i}`).find(".date").text(data.list[i].dt_txt);
+        let date = new Date(data.list[i].dt_txt);
+        $(`#${i}`).find(".date").text(date.toLocaleDateString());
         $(`#${i}`).find(".icon").attr("src", `http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png`);
         let temp = Math.round((data.list[i].main.temp - 273.15) * 9/5 + 32);
         $(`#${i}`).find(".temp").text("Temp: " + temp + "°F");
