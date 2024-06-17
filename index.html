@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 Day Forecast</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
     <link rel="stylesheet" href="./asset/style.css">
 </head>
 <body>
     
     <header>
-        <div class="container text-center">
+        <div class="container text-center bg-primary text-light">
             <div class="row">
                 <div class="col-12">
-                    <h1>5 Day Forecast</h1>
+                    <h1>Weather Dashboard</h1>
                 </div>
             </div>
         </div>
@@ -25,44 +24,42 @@
         <div class="container">
             <div class="row">
                 
-                <div class="col-3">
+                <section class="col-3">
                     
                     <form id="search-form" class="d-grid">
                         <div class="mb-3">
-                            <label for="city" class="form-label">City</label>
+                            <label for="city" class="form-label fs-3 fw-bold">Search for a City:</label>
                             <input type="text" class="form-control" id="city" name="city" required>
                         </div>
                         <button type="submit" class="btn btn-primary" id="search-city">Search</button>
                     </form>
 
-                    <div id="history" class="d-grid gap-2 mt-4 ">
-                        <button type="submit" class="btn btn-primary">City</button>
-                        <button type="submit" class="btn btn-primary">City</button>
-
-                    </div>  
+                    <!-- History buttons -->
+                    <div id="history" class="d-grid gap-2 mt-4"></div>  
                     
-                </div>
+                </section>
 
-                <div class="col">
+                <section class="col">
                     
-                    <div class="row">
+                    <div class="row mt-2">
                         <div id="forecast">
                             <div class="card">
                                 <div class="card-body">
-                                    <h3 class="card-title" id="main-title">Date</h3>
+                                    <h3 class="card-title fw-bold" id="main-title"></h3>
                                     <img src="" alt="weather icon" id="main-icon">
-                                    <p class="card-text" id="main-temp">Temp: 0</p>
-                                    <p class="card-text" id="main-wind">Wind: 0</p>
-                                    <p class="card-text" id="main-humidity">Humidity: 0</p>
+                                    <p class="card-text" id="main-temp"></p>
+                                    <p class="card-text" id="main-wind"></p>
+                                    <p class="card-text" id="main-humidity"></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="row">
-                        <h5>5-Day Forecast:</h5>
+                        <h5 class="fw-bold mt-2">5-Day Forecast:</h5>
                         <div id="forecast5Day" class="row">
-                            <div class="col">
+                            
+                            <article class="col">
                                 <div class="card">
                                     <div class="card-body" id="1">
                                         <h5 class="card-title date"></h5>
@@ -72,8 +69,9 @@
                                         <p class="card-text humidity"></p>
                                     </div> 
                                 </div>
-                            </div>
-                            <div class="col">
+                            </article>
+                            
+                            <article class="col">
                                 <div class="card">
                                     <div class="card-body" id="2">
                                         <h5 class="card-title date"></h5>
@@ -83,8 +81,9 @@
                                         <p class="card-text humidity"></p>
                                     </div> 
                                 </div>
-                            </div>
-                            <div class="col">
+                            </article>
+                            
+                            <article class="col">
                                 <div class="card">
                                     <div class="card-body" id="3">
                                         <h5 class="card-title date"></h5>
@@ -94,8 +93,9 @@
                                         <p class="card-text humidity"></p>
                                     </div> 
                                 </div>
-                            </div>
-                            <div class="col">
+                            </article>
+                            
+                            <article class="col">
                                 <div class="card">
                                     <div class="card-body" id="4">
                                         <h5 class="card-title date"></h5>
@@ -105,8 +105,9 @@
                                         <p class="card-text humidity"></p>
                                     </div> 
                                 </div>
-                            </div>
-                            <div class="col">
+                            </article>
+                            
+                            <article class="col">
                                 <div class="card">
                                     <div class="card-body" id="5">
                                         <h5 class="card-title date"></h5>
@@ -116,20 +117,22 @@
                                         <p class="card-text humidity"></p>
                                     </div> 
                                 </div>
-                            </div>
+                            </article>
+
                         </div>  
                     </div>
                 
-                </div>
+                </section>
 
             </div>  
         </div>
 
-        
-
-
     </main>
     
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 <a href="https://github.com/swokamoto/portfolio-okamoto"> Scott Okamoto</a></p>
+    </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="./asset/js/search.js"></script>
